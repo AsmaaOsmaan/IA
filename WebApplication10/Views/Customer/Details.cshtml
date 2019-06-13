@@ -1,0 +1,67 @@
+﻿@model WebApplication10.Models.projects
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/shared/_customerlayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>projects</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.progress.name_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.progress.name_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.users.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.users.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status.name_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status.name_)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

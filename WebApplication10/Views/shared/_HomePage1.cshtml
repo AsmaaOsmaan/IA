@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/content/main.css" rel="stylesheet" />
+    <link href="~/content/shop-homepage.css" rel="stylesheet" />
+    <link href="~/content/util.css" rel="stylesheet" />
+
+    <style>
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: black;
+            padding: 15px;
+        }
+
+        nav {
+            background-color: cadetblue;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+
+        article {
+            position: center;
+            padding: 100px;
+            width: 80%;
+            background-color: #f1f1f1;
+            height: 100px; /* only for demonstration, should be removed */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @if (Convert.ToInt32(Session["UserTypeId"]) == 2)
+                {
+                    <a class="navbar-brand" href="@Url.Action("listInformation","Customer")">Profail</a>
+                }
+                @if (Convert.ToInt32(Session["UserTypeId"]) == 1)
+                {
+                    <a class="navbar-brand" href="@Url.Action("PersonalInformation","Admin")">Profail</a>
+                }
+
+                @if (Convert.ToInt32(Session["UserTypeId"]) == 3)
+                {
+                    <a class="navbar-brand" href="@Url.Action("list","Director")">Profail</a>
+                }
+
+                @if (Convert.ToInt32(Session["UserTypeId"]) == 4)
+                {
+                    <a class="navbar-brand" href="@Url.Action("listinformation","Leader")">Profail</a>
+                }
+                @if (Convert.ToInt32(Session["UserTypeId"]) == 5)
+                {
+                    <a class="navbar-brand" href="@Url.Action("listpesonalinformation","Traniee")">Profail</a>
+                }
+
+
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="@Url.Action("Create","home")">Home</a></li>
+                   @if (Convert.ToInt32(Session["UserTypeId"]) != null)
+                   {
+                    <li class="active"><a href="@Url.Action("Logout", "Login")">Logout</a></li>
+                   }
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group input-group">
+                        <input type="text" class="form-control" placeholder="Search..">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+    <article>
+        <div>
+            @RenderBody();
+        </div>
+    </article>
+    <div style="padding:200px">
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="container-fluid text-center">
+        <p>Footer </p>
+    </footer>
+
+</body>
+</html>

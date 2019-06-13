@@ -1,0 +1,78 @@
+﻿@model WebApplication10.Models.projectdetails
+
+@{
+    ViewBag.Title = "ScheduleProject";
+    //// Layout ="~/views/shared/_directorlayout.cshtml";
+    Layout = "~/views/shared/_adminlayout.cshtml";
+
+}
+
+<h2>ScheduleProject</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.projectid, "projectid", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.projectid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.projectid, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.progressStatusid, "progressStatusid", htmlAttributes: new { @class = "control-label col-md-2" })
+                       <div class="col-md-10">
+                           <select name="progressStatusid">
+                               @foreach(var x in ViewBag.progressStatusid)
+                               {
+                                   <option value="@x.Id">@x.name_</option>
+                               }
+                           </select>
+                         @* @Html.DropDownList("progressStatusid", (SelectList)ViewBag.progressStatusid,"select", htmlAttributes: new { @class = "form-control" })*@
+                          
+                          @Html.ValidationMessageFor(model => model.progressStatusid, "", new { @class = "text-danger" })
+         </div>
+        </div>
+
+        <div class="form-group">
+          
+            @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.startDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.endDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.endDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.endDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="text-align:left;font-size:24px " >
+    @Html.ActionLink("Back to List", "Index")
+</div>

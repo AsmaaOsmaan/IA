@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WebApplication10.Models.users>
+
+@{
+    ViewBag.Title = "listinformation";
+    //Layout = "~/views/shared/_customerlayout.cshtml";
+    Layout = "~/views/shared/_adminlayout.cshtml";
+}
+
+<h2>Personalinformation</h2>
+
+
+<table class="table" style="text-align:start ;background-color:aliceblue ;font-size:20px" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jobDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserRole.titleRole)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jobDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserRole.titleRole)
+        </td>
+        <td>
+            @Html.ActionLink("chekrequests", "list", new { id = item.Id }, new { @class = "btn btn-primary" }) 
+           
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    <div style="font-size:20px">
+        @Html.Action("current");
+
+    </div>
+    <div>
+        @Html.Action("previous");
+
+    </div>
+</div>

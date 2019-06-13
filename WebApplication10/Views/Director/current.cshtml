@@ -1,0 +1,92 @@
+﻿@model IEnumerable<WebApplication10.Models.projectteams>
+
+
+@{
+    ViewBag.Title = "current";
+    Layout = "~/views/shared/_adminlayout.cshtml";
+    //Layout = "~/views/shared/_directorlayout.cshtml";
+}
+
+<h2>current</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.titel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.projects.titel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projects.description)
+            </td>
+            <td>
+                <botton class="btn btn-light my-2 my-sm-0" style="background-color:darkgrey;color:dimgray">
+                    @Html.ActionLink("leav project", "leaveproject", new { id = item.Id })
+
+                </botton>
+
+                <botton class="btn btn-light my-2 my-sm-0" style="background-color:darkgrey;color:dimgray">
+                    @Html.ActionLink("Dliverd", "Delverd", new { id = item.Id })
+                </botton>
+
+                <botton class="btn btn-light my-2 my-sm-0" style="background-color:darkgrey;color:dimgray">
+
+                    @Html.ActionLink("ViewTeam", "ViewTeam", new { id = item.projectid })
+                </botton>
+
+            </td>
+
+
+
+
+
+        </tr>
+    }
+    @*@foreach (var item in Model)
+        {
+          <div class="row">
+              <div class="col-md-10 col-md-offset-1 price-grid">
+                  <div class="price-block">
+                      <div class="price-gd-top pric-clr3">
+                          <h4>@Html.DisplayFor(modelItem => item.projects.titel)</h4>
+
+
+                      </div>
+                      <div class="price-gd-bottom">
+                          <div class="price-list">
+                              @Html.DisplayFor(modelItem => item.projects.description)
+                          </div>
+                      </div>
+
+                      <div class="price-selet pric-clr3">
+                         @Html.ActionLink("leav project", "Edit", new { id = item.Id })
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <hr />
+        }*@
+
+
+
+
+
+
+
+
+
+</table>

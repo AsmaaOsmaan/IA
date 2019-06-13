@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testtestModelStoreContainer" CdmEntityContainer="testtestEntities4">
+    <EntitySetMapping Name="feedback">
+      <EntityTypeMapping TypeName="testtestModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="teamLeaderId" ColumnName="teamLeaderId" />
+          <ScalarProperty Name="traineeId" ColumnName="traineeId" />
+          <ScalarProperty Name="projectId" ColumnName="projectId" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hiringRequest">
+      <EntityTypeMapping TypeName="testtestModel.hiringRequest">
+        <MappingFragment StoreEntitySet="hiringRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="statusid" ColumnName="statusid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notification">
+      <EntityTypeMapping TypeName="testtestModel.notification">
+        <MappingFragment StoreEntitySet="notification">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="seen" ColumnName="seen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="progress">
+      <EntityTypeMapping TypeName="testtestModel.progress">
+        <MappingFragment StoreEntitySet="progress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name_" ColumnName="name " />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projectdetails">
+      <EntityTypeMapping TypeName="testtestModel.projectdetails">
+        <MappingFragment StoreEntitySet="projectdetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="progressStatusid" ColumnName="progressStatusid" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projectRequest">
+      <EntityTypeMapping TypeName="testtestModel.projectRequest">
+        <MappingFragment StoreEntitySet="projectRequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="managerid" ColumnName="managerid" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="statusid" ColumnName="statusid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="testtestModel.projects">
+        <MappingFragment StoreEntitySet="projects">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titel" ColumnName="titel" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="time_" ColumnName="time " />
+          <ScalarProperty Name="statusid" ColumnName="statusid" />
+          <ScalarProperty Name="progressstatus" ColumnName="progressstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projectteams">
+      <EntityTypeMapping TypeName="testtestModel.projectteams">
+        <MappingFragment StoreEntitySet="projectteams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="testtestModel.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name_" ColumnName="name " />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="testtestModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="titleRole" ColumnName="titleRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="testtestModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="jobDescription" ColumnName="jobDescription" />
+          <ScalarProperty Name="usertypeId" ColumnName="usertypeId" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

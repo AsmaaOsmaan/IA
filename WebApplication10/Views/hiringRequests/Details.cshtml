@@ -1,0 +1,51 @@
+﻿@model WebApplication10.Models.hiringRequest
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/shared/_adminlayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hiringRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.projects.titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.projects.titel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status.name_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status.name_)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.users.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.users.email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

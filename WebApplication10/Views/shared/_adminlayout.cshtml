@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/content/admin.min.css" rel="stylesheet" />
+    <style>
+        table, th, td {
+            border: initial;
+        }
+
+        header {
+            background-color: darkslategray;
+            padding: 10px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        nav {
+            position: center;
+            width: 100%;
+            height: 70px; /* only for demonstration, should be removed */
+            background: #ccc;
+            padding: 10px;
+        }
+
+        article {
+            float: right;
+            padding: 10px;
+            width: 80%;
+            background-color: #f1f1f1;
+            height: 70px; /* only for demonstration, should be removed */
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header class="container-fluid text-center">
+
+        <h2>Admin Profile</h2>
+    </header>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Create","home")">Home</a></li>
+                    @*<li><a href="@Url.Action("Logout","Login")">Profile</a></li>
+                    <li><a href="#">Projects</a></li>*@
+                    <li><a href="#"></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="@Url.Action("Logout","Login")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <article>
+            <div class="container-fluid text-center">
+                @RenderBody()
+            </div>
+        </article>
+
+        <div class="container-fluid text-center">
+            <div class="row content">
+                <div class="col-sm-8 text-left">
+                    <ul style="background-color:#f1f1f1;width:200px;height:500px; padding:10px; ">
+    @if (Convert.ToInt32(Session["UserTypeId"]) == 1)
+    {
+        <li style="font-size:large; height:50px ;">@Html.ActionLink("Manage All Users", "index", "Admin")</li>
+                        <li style="font-size:large; height:50px;  ">@Html.ActionLink("Manage All Requests", "selectpostsPinneded", "Admin")</li>
+                        <li style="font-size:large; height:50px;  ">@Html.ActionLink("Posts was Rejected", "selectpostsrejected", "Admin")</li>
+                        <li style="font-size:large; height:50px;  ">@Html.ActionLink("Posts was Accepted", "selectpostsaccepted", "Admin")</li>
+    }
+    @if (Convert.ToInt32(Session["UserTypeId"]) == 4)
+    {
+
+        <li style="font-size:20px ;width:100px ; height:50px">@Html.ActionLink("Profile", "listinformation", "Leader")</li>
+
+        <li style="font-size:20px; width:100px;height:50px;">@Html.ActionLink("Requests", "list", "Leader")</li>
+
+    }
+
+    @if (Convert.ToInt32(Session["UserTypeId"]) == 3)
+    {
+
+        <li style="font-size:large; height:50px ;">@Html.ActionLink("PersonalInfirmation", "list", "director")</li>
+        <li style="font-size:large; height:50px;  ">@Html.ActionLink("requests", "check", "director")</li>
+                        <li style="font-size:large; height:50px;  ">@Html.ActionLink("Previous Projects", "previous", "director")</li>
+                        <li style="font-size:large; height:50px;  ">@Html.ActionLink("Current Projects", "current", "director")</li>
+                 
+
+    }
+
+
+
+
+
+
+
+
+                    </ul>
+
+                </div>
+                <div class="col-sm-8 text-left">
+                </div>
+            </div>
+
+            <!------------------------------------------>
+            @* <div>
+                    @RenderBody()
+                </div>*@
+            <!------------------------------------------>
+
+        </div>
+    </div>
+
+
+    @*<div>
+            @RenderBody()
+        </div>*@
+
+
+
+    <footer class="container-fluid text-center">
+        <p>Footer</p>
+    </footer>
+
+
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

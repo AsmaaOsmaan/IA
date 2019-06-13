@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication10.Models.projectteams>
+
+<p>
+  Current Projects
+</p>
+<table class="table" style="text-align:start ;font-size:20px ;background-color:bisque" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.titel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.description)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.users.email)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.projects.titel)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.projects.description)
+        </td>
+
+        @*<td>
+            @Html.DisplayFor(modelItem => item.users.email)
+        </td>*@
+        <td>
+            @Html.ActionLink("ViewTeam", "ViewTeam", new { id=item.projectid }, new { @class = "btn btn-primary" }) 
+           
+           
+        </td>
+    </tr>
+}
+
+</table>

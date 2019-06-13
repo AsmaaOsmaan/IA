@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DirectorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="teamLeaderId" Type="int" />
+    <Property Name="traineeId" Type="int" />
+    <Property Name="projectId" Type="int" />
+    <Property Name="rate" Type="int" />
+    <Property Name="time" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="hiringRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projectid" Type="int" />
+    <Property Name="userid" Type="int" />
+    <Property Name="time" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="statusid" Type="int" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="text" Type="text" />
+    <Property Name="userId" Type="int" />
+    <Property Name="date" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="seen" Type="int" />
+  </EntityType>
+  <EntityType Name="progress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name " Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="projectdetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projectid" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="progressStatusid" Type="int" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="endDate" Type="date" />
+  </EntityType>
+  <EntityType Name="projectRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projectid" Type="int" />
+    <Property Name="managerid" Type="int" />
+    <Property Name="time" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="statusid" Type="int" />
+  </EntityType>
+  <EntityType Name="projects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titel" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="text" />
+    <Property Name="customerid" Type="int" />
+    <Property Name="time " Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="statusid" Type="int" />
+    <Property Name="progressstatus" Type="int" />
+  </EntityType>
+  <EntityType Name="projectteams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projectid" Type="int" />
+    <Property Name="userid" Type="int" />
+  </EntityType>
+  <EntityType Name="status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name " Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titleRole" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="photo" Type="text" />
+    <Property Name="jobDescription" Type="text" />
+    <Property Name="usertypeId" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_feedback_ToTable">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="teamLeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_feedback_ToTable1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="traineeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_feedback_ToTable2">
+    <End Role="projects" Type="Self.projects" Multiplicity="0..1" />
+    <End Role="feedback" Type="Self.feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="feedback">
+        <PropertyRef Name="projectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_id_ToTable">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="usertypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notification_ToTable">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="notification" Type="Self.notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRequest_ToTable">
+    <End Role="status" Type="Self.status" Multiplicity="0..1" />
+    <End Role="projectRequest" Type="Self.projectRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projectRequest">
+        <PropertyRef Name="statusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRequest_ToTable_1">
+    <End Role="projects" Type="Self.projects" Multiplicity="0..1" />
+    <End Role="projectRequest" Type="Self.projectRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projectRequest">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRequest_ToTable_1011">
+    <End Role="projects" Type="Self.projects" Multiplicity="0..1" />
+    <End Role="projectdetails" Type="Self.projectdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projectdetails">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRequest_ToTable_111">
+    <End Role="projects" Type="Self.projects" Multiplicity="0..1" />
+    <End Role="hiringRequest" Type="Self.hiringRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="hiringRequest">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRequest_ToTable11">
+    <End Role="status" Type="Self.status" Multiplicity="0..1" />
+    <End Role="hiringRequest" Type="Self.hiringRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="hiringRequest">
+        <PropertyRef Name="statusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectRequest_ToTable911">
+    <End Role="progress" Type="Self.progress" Multiplicity="0..1" />
+    <End Role="projectdetails" Type="Self.projectdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="progress">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projectdetails">
+        <PropertyRef Name="progressStatusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projects_ToTable">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="projects" Type="Self.projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projects">
+        <PropertyRef Name="customerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projects_ToTable_1">
+    <End Role="status" Type="Self.status" Multiplicity="0..1" />
+    <End Role="projects" Type="Self.projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projects">
+        <PropertyRef Name="statusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projects_ToTable_2">
+    <End Role="progress" Type="Self.progress" Multiplicity="0..1" />
+    <End Role="projects" Type="Self.projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="progress">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projects">
+        <PropertyRef Name="progressstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectteams_ToTable">
+    <End Role="projects" Type="Self.projects" Multiplicity="0..1" />
+    <End Role="projectteams" Type="Self.projectteams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="projectteams">
+        <PropertyRef Name="projectid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_projectteams_ToTable_1">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="projectteams" Type="Self.projectteams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projectteams">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK1_projectRequest_ToTable">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="projectRequest" Type="Self.projectRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projectRequest">
+        <PropertyRef Name="managerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK1_projectRequest_ToTable11">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="hiringRequest" Type="Self.hiringRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="hiringRequest">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DirectorModelStoreContainer">
+    <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hiringRequest" EntityType="Self.hiringRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notification" EntityType="Self.notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="progress" EntityType="Self.progress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projectdetails" EntityType="Self.projectdetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projectRequest" EntityType="Self.projectRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="projectteams" EntityType="Self.projectteams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_feedback_ToTable" Association="Self.FK_feedback_ToTable">
+      <End Role="users" EntitySet="users" />
+      <End Role="feedback" EntitySet="feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_feedback_ToTable1" Association="Self.FK_feedback_ToTable1">
+      <End Role="users" EntitySet="users" />
+      <End Role="feedback" EntitySet="feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_feedback_ToTable2" Association="Self.FK_feedback_ToTable2">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="feedback" EntitySet="feedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_id_ToTable" Association="Self.FK_id_ToTable">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notification_ToTable" Association="Self.FK_notification_ToTable">
+      <End Role="users" EntitySet="users" />
+      <End Role="notification" EntitySet="notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRequest_ToTable" Association="Self.FK_projectRequest_ToTable">
+      <End Role="status" EntitySet="status" />
+      <End Role="projectRequest" EntitySet="projectRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRequest_ToTable_1" Association="Self.FK_projectRequest_ToTable_1">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="projectRequest" EntitySet="projectRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRequest_ToTable_1011" Association="Self.FK_projectRequest_ToTable_1011">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="projectdetails" EntitySet="projectdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRequest_ToTable_111" Association="Self.FK_projectRequest_ToTable_111">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="hiringRequest" EntitySet="hiringRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRequest_ToTable11" Association="Self.FK_projectRequest_ToTable11">
+      <End Role="status" EntitySet="status" />
+      <End Role="hiringRequest" EntitySet="hiringRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectRequest_ToTable911" Association="Self.FK_projectRequest_ToTable911">
+      <End Role="progress" EntitySet="progress" />
+      <End Role="projectdetails" EntitySet="projectdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projects_ToTable" Association="Self.FK_projects_ToTable">
+      <End Role="users" EntitySet="users" />
+      <End Role="projects" EntitySet="projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projects_ToTable_1" Association="Self.FK_projects_ToTable_1">
+      <End Role="status" EntitySet="status" />
+      <End Role="projects" EntitySet="projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projects_ToTable_2" Association="Self.FK_projects_ToTable_2">
+      <End Role="progress" EntitySet="progress" />
+      <End Role="projects" EntitySet="projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectteams_ToTable" Association="Self.FK_projectteams_ToTable">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="projectteams" EntitySet="projectteams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_projectteams_ToTable_1" Association="Self.FK_projectteams_ToTable_1">
+      <End Role="users" EntitySet="users" />
+      <End Role="projectteams" EntitySet="projectteams" />
+    </AssociationSet>
+    <AssociationSet Name="FK1_projectRequest_ToTable" Association="Self.FK1_projectRequest_ToTable">
+      <End Role="users" EntitySet="users" />
+      <End Role="projectRequest" EntitySet="projectRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK1_projectRequest_ToTable11" Association="Self.FK1_projectRequest_ToTable11">
+      <End Role="users" EntitySet="users" />
+      <End Role="hiringRequest" EntitySet="hiringRequest" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

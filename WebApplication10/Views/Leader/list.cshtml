@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication10.Models.hiringRequest>
+
+@{
+    ViewBag.Title = "list";
+    //Layout = "~/views/shared/_customerlayout.cshtml";
+    Layout = "~/views/shared/_adminlayout.cshtml";
+}
+
+<h2>list</h2>
+
+
+<table class="table" style="text-align:start">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.titel)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.users.email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projects.titel)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.users.email)
+        </td>
+        <td>
+            @Html.ActionLink("accept", "AcceptRequest", new { id=item.Id }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Reject", "rejectRequest", new { id=item.Id }, new { @class = "btn btn-danger" })
+          
+        </td>
+    </tr>
+}
+
+</table>
+@*<div>
+     @Html.Action("current");
+
+</div>*@
+<h2 style="text-align:left">
+    @Html.ActionLink("Create New", "Create")
+</h2>

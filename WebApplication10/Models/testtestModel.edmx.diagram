@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="535995597e9d49a389ec5af25d95d5d9" Name="Diagram1">
+        <EntityTypeShape EntityType="testtestModel.feedback" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.hiringRequest" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.notification" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.progress" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.projectdetails" Width="1.5" PointX="10.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.projectRequest" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.projects" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.projectteams" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.status" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.UserRole" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testtestModel.users" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="testtestModel.FK_feedback_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_feedback_ToTable1" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_feedback_ToTable2" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectRequest_ToTable_111" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectRequest_ToTable11" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK1_projectRequest_ToTable11" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_notification_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectRequest_ToTable911" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projects_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectRequest_ToTable_1011" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectRequest_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectRequest_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK1_projectRequest_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projects_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projects_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectteams_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_projectteams_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="testtestModel.FK_id_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

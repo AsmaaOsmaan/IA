@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplication10.Models.projectteams>
+
+@{
+    ViewBag.Title = "previous";
+    //Layout ="~/views/shared/_directorlayout.cshtml";
+    Layout = "~/views/shared/_adminlayout.cshtml";
+
+}
+
+<h2>previous</h2>
+
+<table class="table" style="text-align:start">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.titel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.projects.description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.projects.titel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.projects.description)
+        </td>
+       
+    </tr>
+}
+
+</table>
